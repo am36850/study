@@ -1,0 +1,44 @@
+1) Download Community Edition MySql from below location as per your operating system	
+https://dev.mysql.com/downloads/mysql/
+
+2) extract the MySql zip file to your preferred location
+3) create folder called 'data' (or of any name you wish to have). remember this is the folder which will have all your mysql DB data.
+4) create 'my.ini' file and add below lines of code in it.
+
+[mysqld]
+# installation directory
+basedir="{your extract location}/mysql"
+
+# data directory
+datadir="{your data folder path which you created in step 3}"
+
+
+5) Open cmd and go to bin folder of extracted mysql folder. execute the below command :
+	
+   mysqld --initialize-insecure
+   
+6) Program will terminate after few seconds.
+
+7) on cmd excute the below command :
+   mysqld
+   
+8) open another cmd prompt and go to bin folder of mysql. execute the below command:
+
+   UPDATE mysql.user SET authentication_string=PASSWORD("my-new-password") WHERE User='root';
+   FLUSH PRIVILEGES;
+   exit;
+   mysqladmin.exe -u root -p shutdown
+   enter the newly set password
+   
+9) install mysql as service
+	mysqld --install
+
+10) if you want to remove the service 
+	mysqld --remove
+	
+	
+Note:
+1) On windows 10 you might get errors as 'msvcp120.dll and msvcr120.ddl' missing.download the missing ddl and paste it in the c:/windows/system32 folder.
+
+
+	
