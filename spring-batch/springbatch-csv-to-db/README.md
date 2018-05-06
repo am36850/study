@@ -18,7 +18,7 @@ This project requires following two things:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Download , modify and suggest new changes. Happy learning.
 
 ## Acknowledgments
 
