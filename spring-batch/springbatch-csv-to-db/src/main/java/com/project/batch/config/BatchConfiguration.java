@@ -1,7 +1,6 @@
 package com.project.batch.config;
 
 import javax.sql.DataSource;
-
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -16,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-
 import com.project.batch.dto.PersonDto;
 import com.project.batch.listener.DurationCaptureListener;
 import com.project.batch.model.Person;
@@ -27,46 +25,47 @@ import com.project.batch.repository.PersonRepository;
 @EnableBatchProcessing
 public class BatchConfiguration {
 
-	@Autowired
-	public JobBuilderFactory jobBuilderFactory;
+  @Autowired
+  public JobBuilderFactory jobBuilderFactory;
 
-	@Autowired
-	public StepBuilderFactory stepBuilderFactory;
+  @Autowired
+  public StepBuilderFactory stepBuilderFactory;
 
-	@Autowired
-	private PersonRepository personRepository;
+  @Autowired
+  private PersonRepository personRepository;
 
-	@Autowired
-	private DurationCaptureListener durationListener;
+  @Autowired
+  private DurationCaptureListener durationListener;
 
-	@Autowired
-	private PersonItemProcessor itemProcessor;
+  @Autowired
+  private PersonItemProcessor itemProcessor;
 
-	@Autowired
-	DataSource datasource;
+  @Autowired
+  DataSource datasource;
 
-	@Bean
-	public FlatFileItemReader<PersonDto> reader() {
-		return new FlatFileItemReaderBuilder<PersonDto>().name("PersonFlatFileReader")
-				.resource(new ClassPathResource("persons.csv")).targetType(PersonDto.class).delimited().delimiter(",")
-				.names(new String[] { "firstName", "lastName", "email", "age" }).build();
-	}
+  @Bean
+  public FlatFileItemReader<PersonDto> reader() {
+    return new FlatFileItemReaderBuilder<PersonDto>().name("PersonFlatFileReader")
+        .resource(new ClassPathResource("persons.csv")).targetType(PersonDto.class).delimited()
+        .delimiter(",").names(new String[] {"firstName", "lastName", "email", "age"}).build();
+  }
 
-	@Bean
-	public RepositoryItemWriter<Person> writer() {
-		return new RepositoryItemWriterBuilder<Person>().methodName("save").repository(personRepository).build();
-	}
+  @Bean
+  public RepositoryItemWriter<Person> writer() {
+    return new RepositoryItemWriterBuilder<Person>().methodName("save").repository(personRepository)
+        .build();
+  }
 
-	@Bean
-	public Step step1() {
-		return stepBuilderFactory.get("step1").<PersonDto, Person>chunk(10).reader(reader()).processor(itemProcessor)
-				.writer(writer()).build();
-	}
+  @Bean
+  public Step step1() {
+    return stepBuilderFactory.get("step1").<PersonDto, Person>chunk(10).reader(reader())
+        .processor(itemProcessor).writer(writer()).build();
+  }
 
-	@Bean
-	public Job importUserJob() {
-		return jobBuilderFactory.get("ImportUserJob").incrementer(new RunIdIncrementer()).listener(durationListener)
-				.flow(step1()).end().build();
-	}
+  @Bean
+  public Job importUserJob() {
+    return jobBuilderFactory.get("ImportUserJob").incrementer(new RunIdIncrementer())
+        .listener(durationListener).flow(step1()).end().build();
+  }
 
 }
