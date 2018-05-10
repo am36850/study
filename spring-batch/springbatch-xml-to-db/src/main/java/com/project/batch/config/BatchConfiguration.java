@@ -8,12 +8,10 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.data.RepositoryItemWriter;
 import org.springframework.batch.item.data.builder.RepositoryItemWriterBuilder;
-import org.springframework.batch.item.file.FlatFileItemReader;
-import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
+import org.springframework.batch.item.xml.StaxEventItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 import com.project.batch.dto.PersonDto;
 import com.project.batch.listener.DurationCaptureListener;
 import com.project.batch.model.Person;
@@ -40,10 +38,8 @@ public class BatchConfiguration {
   private PersonItemProcessor itemProcessor;
 
   @Bean
-  public FlatFileItemReader<PersonDto> reader() {
-    return new FlatFileItemReaderBuilder<PersonDto>().name("PersonFlatFileReader")
-        .resource(new ClassPathResource("persons.csv")).targetType(PersonDto.class).delimited()
-        .delimiter(",").names(new String[] {"firstName", "lastName", "email", "age"}).build();
+  public StaxEventItemReader<PersonDto> reader() {
+   return new StaxEventItemReader();
   }
 
   @Bean
