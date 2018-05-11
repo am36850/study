@@ -73,7 +73,7 @@ public class BatchConfiguration {
 
   private XStreamMarshaller getMarshaller() {
     Map<String,String> aliasesMap =new HashMap<String,String>();
-    aliasesMap.put("PersonDto", "com.project.batch.dto.PersonDto");
+    aliasesMap.put("com.project.batch.dto.PersonDto", "com.project.batch.dto.PersonDto");
     XStreamMarshaller marshaller = new XStreamMarshaller();
     marshaller.setAliases(aliasesMap);
     return marshaller;   

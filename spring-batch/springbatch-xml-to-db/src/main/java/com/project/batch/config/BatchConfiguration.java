@@ -47,12 +47,12 @@ public class BatchConfiguration {
 	@Bean
 	public StaxEventItemReader<PersonDto> reader() {
 		return new StaxEventItemReaderBuilder<PersonDto>().name("XMLItemReader").unmarshaller(getUnMarshaller())
-				.addFragmentRootElements("PersonDto").resource(new ClassPathResource("sample.xml")).build();
+				.addFragmentRootElements("com.project.batch.dto.PersonDto").resource(new ClassPathResource("sample.xml")).build();
 	}
 
 	private XStreamMarshaller getUnMarshaller() {
 		Map<String, String> aliasesMap = new HashMap<String, String>();
-		aliasesMap.put("PersonDto", "com.project.batch.dto.PersonDto");
+		aliasesMap.put("com.project.batch.dto.PersonDto", "com.project.batch.dto.PersonDto");
 		XStreamMarshaller marshaller = new XStreamMarshaller();
 		marshaller.setAliases(aliasesMap);
 		return marshaller;
