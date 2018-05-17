@@ -19,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
 @Configuration
 @EnableBatchProcessing
@@ -40,9 +42,14 @@ public class BatchConfiguration {
   private PersonItemProcessor itemProcessor;
 
   @Bean
+  SimpleAsyncTaskExecutor getSimpleAsyncTaskExecutor(){
+   return new SimpleAsyncTaskExecutor("spring-batch");
+  }
+
+  @Bean
   public FlatFileItemReader<PersonDto> reader() {
     return new FlatFileItemReaderBuilder<PersonDto>().name("PersonFlatFileReader")
-        .resource(new ClassPathResource("persons.csv")).targetType(PersonDto.class).delimited()
+        .resource(new FileSystemResource("D:\\workspace\\study\\spring-batch\\sample-data\\persons.csv")).targetType(PersonDto.class).delimited()
         .delimiter(",").names(new String[] {"firstName", "lastName", "email", "age"}).build();
   }
 
@@ -55,7 +62,7 @@ public class BatchConfiguration {
   @Bean
   public Step step1() {
     return stepBuilderFactory.get("step1").<PersonDto, Person>chunk(10).reader(reader())
-        .processor(itemProcessor).writer(writer()).build();
+        .processor(itemProcessor).writer(writer()).taskExecutor(getSimpleAsyncTaskExecutor()).throttleLimit(Runtime.getRuntime().availableProcessors()).build();
   }
 
   @Bean
