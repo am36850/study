@@ -1,20 +1,29 @@
-Youtube Search Link:
-https://www.youtube.com/results?search_query=spring+boot+batch+tutorial
+**_SPRING BATCH COURSE SYLLABUS_**
+1) Spring Batch Introductory application. Simple spring reader-writer application  
+2) Spring Batch Architecture and Domain Language (Terminology)  
+3) Spring Batch Meta-Data  
+4) Configuration of Job and restartable setting  
+5) Job Interception  
+6) Job Inheritance and JobParameterValidator  
+7) Java Configuration  
+8) Job Repository , Transaction Configuration , Changing Table prefix   
+9) JobLauncher  
+	a) Running Job  
+	b) From Command Line  
+	c) From Web Container  
+10) Advance Meta-Data Usage  
+	a) Querying the repository  
+	b) Job Registry  
+	c) JobOperator  
+	d) JobParametersIncrementer  
+	e) Stopping and aborting job  
 
-Google Search  Query :
-spring batch + spring boot examples  (using tools to show only past month result)
-
-# Important Link to watch spring boot:
-https://www.youtube.com/watch?v=x4nBNLoizOc&list=PLiSYBAtJpx1Xbv8U3Cmbft_WbX69Naw5z
-
-# Important POCs for Spring Batch
-1) schema metadata tables elaboration
-2) CSV file to Database
-3) Database to CSV file
-4) XML File to Database
-5) Database to XML File
-6) MultiResourceItemReader : to read multiple files and write them to specific one thing (CSV or DB)
-7) Scheduling Batch Job
-8) Tasklet Interface : to do a single step job like cleaning or initializing resource
-9) Spring Batch Partitioning :
-   Span multiple threads to do the same job inorder to reduce the time taken by job 
+**_Examples_**  
+1) CSV file to Database  
+2) Database to CSV file  
+3) XML File to Database  
+4) Database to XML File  
+5) MultiResourceItemReader : to read multiple files and write them to specific one thing (CSV or DB)  
+6) Scheduling Batch Job  
+7) Tasklet Interface : to do a single step job like cleaning or initializing resource  
+8) Spring Batch Partitioning : Span multiple threads to do the same job inorder to reduce the time taken by job  
