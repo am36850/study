@@ -1,0 +1,38 @@
+Spring Core
+Spring Boot
+Spring Batch
+Spring Integration
+Spring Data JPA
+
+Spring Security
+Spring OAuth2
+Spring LDAP
+Spring Session
+Spring Social
+
+Java 8,9,10
+J2EE 7
+
+AWS
+ElasticSearch
+Mongo DB
+Apache Hadoop
+Apache Spark
+
+MySql
+Oracle
+
+HTML 5  and CSS 3
+Angular JS
+JS
+JQuery
+Bootstrap
+
+Scala
+Kotlin
+
+Data Structure
+Algorithms
+
+AI
+Machine Learning
