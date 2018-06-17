@@ -50,7 +50,7 @@ public class SentimentAnalyzerApplication implements CommandLineRunner {
         }
 
     }
-    
+
     private void saveRankingForWords(String wordFromFile, String meaning, Double positiveRank, Double negativeRank) {
         EnglishDictionary englishDictionary = englishDictionaryRepository.findByWordLowerCase(wordFromFile.toLowerCase());
         if (positiveRank != 0 || negativeRank != 0) {
