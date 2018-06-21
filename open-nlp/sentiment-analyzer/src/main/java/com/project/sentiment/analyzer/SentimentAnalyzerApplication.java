@@ -1,6 +1,9 @@
 package com.project.sentiment.analyzer;
 
 import com.project.sentiment.analyzer.domain.EnglishDictionary;
+import com.project.sentiment.analyzer.opennlp.LineTokenizer;
+import com.project.sentiment.analyzer.opennlp.ParseSentence;
+import com.project.sentiment.analyzer.opennlp.PartsOfSpeechRecognizer;
 import com.project.sentiment.analyzer.repository.EnglishDictionaryRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +15,22 @@ import org.springframework.util.StringUtils;
 import java.io.File;
 import java.util.Scanner;
 
+import opennlp.tools.parser.Parse;
+
 @SpringBootApplication
 public class SentimentAnalyzerApplication implements CommandLineRunner {
 
     @Autowired
     EnglishDictionaryRepository englishDictionaryRepository;
+
+    @Autowired
+    ParseSentence parseSentence;
+
+    @Autowired
+    PartsOfSpeechRecognizer partsOfSpeechRecognizer;
+
+    @Autowired
+    LineTokenizer lineTokenizer;
 
     public static void main(String[] args) {
         SpringApplication.run(SentimentAnalyzerApplication.class, args);
@@ -24,7 +38,16 @@ public class SentimentAnalyzerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String fileToParse = "C:\\personnal\\study\\open-nlp\\reviews\\SentiWordNet_3.0.0_20130122.txt";
+        String sentence = "Placements are stuck in pending during trafficking";
+        Parse[] parses = parseSentence.parseSentence(sentence);
+        for(Parse p : parses){
+            System.out.println(p);
+        }
+        String[] response = partsOfSpeechRecognizer.getPartsOfSpeech(lineTokenizer.tokenizeLine(sentence));
+        for(String t : response){
+            System.out.println(t);
+        }
+        /*String fileToParse = "C:\\personnal\\study\\open-nlp\\reviews\\SentiWordNet_3.0.0_20130122.txt";
         File file = new File(fileToParse);
         try (Scanner scanner = new Scanner(file)) {
             scanner.nextLine();
@@ -47,7 +70,7 @@ public class SentimentAnalyzerApplication implements CommandLineRunner {
                 String meaning = removeUnnecessaryCharacter(tokens[5]);
                 saveRankingForWords(wordFromFile, meaning, positiveRank, negativeRank);
             }
-        }
+        }*/
 
     }
 

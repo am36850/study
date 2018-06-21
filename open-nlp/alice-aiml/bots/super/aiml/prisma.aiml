@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+	<category><pattern>How do I create a campaign in Prisma?</pattern>
+        <template>Please use the link below: <oob><url>https://prisma.mediaocean.com/help/us/en/</url></oob>.Are you satisfied with given response?</template>
+    </category>
+	<category><pattern>How do I delete a campaign in Prisma</pattern>
+	<template>
+	<random>
+            <li>Please use the link below:<oob><url>
+https://support-na.mediaocean.com/hc/en-us/articles/360000830187-How-Do-I-Delete-a-Campaign-in-Prisma-Video-
+</url></oob>. Are you satisfied with given response?</li>
+            <li> Please go to the below link:<oob><url>
+https://prisma.mediaocean.com/help/us/en/prisma_ua/prisma_cm/users_guide/index.html?q=/help/us/en/prisma_ua/prisma_cm/u
+sers_guide/media_plan/t_delete_layout.html</url></oob>. Are you satisfied with given response?</li>
+         </random>
+		 </template>
+	</category>
+	<category><pattern>Placements are stuck in pending during trafficking</pattern>
+        <template>This may require further investigation. Can I go ahead and create a support ticket?
+</template>
+    </category>
+	<category><pattern>Yes create ticket for this</pattern>
+        <template>Support ticket created for the issue.</template>
+    </category>
+	<category><pattern>No do not create ticket</pattern>
+        <template>Connecting you to an agent........</template>
+    </category>
+	<category><pattern>What is the status on ticket?</pattern>
+        <template>Let me check the status of ticket.</template>
+    </category>
+	<category><pattern>This does not answer my query</pattern>
+        <template>Connecting you to an agent........</template>
+    </category>
+	<category><pattern>I am happy with the response</pattern>
+        <template>Happy to help! Thanks for chatting!</template>
+    </category>
+	<category><pattern>Is there a way to create placements in bulk in Prisma?</pattern>
+        <template>Use the Export to Change function from the Buy view and save and open the Excel file add placements or duplicate and then create a .txt import file. Import the new file back in to the same campaign.</template>
+    </category>
+	<category><pattern>How can I copy the media plan in bulk into another campaign?</pattern>
+        <template>Use the Export to Copy function from the Buy view and save and open the Excel file and then create a .txt import file. Import the new file in to the appropriate campaign.</template>
+    </category>
+</aiml>

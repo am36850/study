@@ -1,0 +1,10 @@
+0,HOW DO I CREATE A CAMPAIGN IN PRISMA,*,*,Please use the link below: https://prisma.mediaocean.com/help/us/en/,prisma.aiml
+0,HOW DO I DELETE A CAMPAIGN IN PRISMA,*,*,<random><li>Please use the link below:https://support-na.mediaocean.com/hc/en-us/articles/360000830187-How-Do-I-Delete-a-Campaign-in-Prisma-Video-.. Are you satisfied with given response?</li><li> Please go to the below link:https://prisma.mediaocean.com/help/us/en/prisma_ua/prisma_cm/users_guide/index.html?q=/help/us/en/prisma_ua/prisma_cm/users_guide/media_plan/t_delete_layout.html. Are you satisfied with given response?</li></random>,prisma.aiml
+0,PLACEMENTS ARE STUCK IN PENDING DURING TRAFFICKING,*,*,This may require further investigation. Can I go ahead and create a support ticket?,prisma.aiml
+0,YES CREATE TICKET FOR THIS,*,*,Support ticket created for the issue.,prisma.aiml
+0,NO DO NOT CREATE TICKET,*,*,Connecting you to an agent........,prisma.aiml
+0,WHAT IS THE STATUS ON TICKET,*,*,Let me check the status of ticket.,prisma.aiml
+0,THIS DOES NOT ANSWER MY QUERY,*,*,Connecting you to an agent........,prisma.aiml
+0,I AM HAPPY WITH THE RESPONSE,*,*,Happy to help! Thanks for chatting!,prisma.aiml
+0,IS THERE A WAY TO CREATE PLACEMENTS IN BULK IN PRISMA,*,*,use the export to change function from the buy view save and open the excel file add placements or duplicate and then create a .txt import file. import the new file back in to the same campaign.,prisma.aiml
+0,HOW CAN I COPY THE MEDIA PLAN IN BULK INTO ANOTHER CAMPAIGN,*,*,use the export to copy function from the buy view save and open the excel file and then create a .txt import file. import the new file in to the appropriate campaign.,prisma.aiml

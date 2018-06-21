@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+    <category><pattern>WHAT IS JAVA</pattern>
+        <template>Java is a programming language.</template>
+    </category>
+    <category><pattern>WHAT IS CHAT BOT</pattern>
+        <template>Chatbot is a computer program designed to simulate conversation with human users, especially over the Internet.</template>
+    </category>
+    <category><pattern>WHAT IS INDIA</pattern>
+        <template>wonderful country.</template>
+    </category>
+	<category><pattern>HOW DO I LOGIN TO PRISMA</pattern>
+        <template>Go to the <oob><url>https://qa2-prisma-ny.mediaocean.com</url></oob>You can login by using your authentication credentials that is user id and password.</template>
+    </category>
+	<category><pattern>How do I use an eSupplier in Prisma</pattern>
+        <template>Please refer the link <oob><url>https://support-na.mediaocean.com/hc/en-us/articles/360001071388-How-Do-I-Use-an-eSupplier-in-Prisma-Video-</url></oob> are you satified with the response?</template>
+    </category>
+	
+</aiml>
